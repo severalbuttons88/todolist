@@ -6,6 +6,7 @@
   --pallet-silver: #b7b7b7;
   --pallet-green: #9abca7;
   --white-text: white;
+  --black-text: black;
 }
 
 @font-face {
@@ -131,4 +132,24 @@ ul {
   align-items: center;
   gap: 10px;
   margin-right: 10px;
+}
+.add-button {
+  height: 50px;
+  width: 230px;
+  font-size: 1.4rem;
+  justify-self: end;
+  align-self: center;
+  margin-right: 100px;
+  background-color:var(--pallet-silver);
+  color: var(--black-text);
+  border-radius: 15px;
+}
+.task-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  border: 1px solid black;
+}
+.task-title {
+    justify-self: end;
 }
