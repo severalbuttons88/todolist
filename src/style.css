@@ -20,16 +20,24 @@ html {
   font-size: 16px;
   font-family: "Oxygen", Tahoma, Verdana, sans-serif;
 }
-
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 .header {
   display: flex;
   background-color: var(--pallet-black);
-  font-size: 20px;
-  font-weight: bold;
+
   color: var(--white-text);
 }
-.header-title {
-
+.large-font {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.medium-font {
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 .logo {
   height: 50px;
@@ -44,5 +52,54 @@ html {
   gap: 15px;
 }
 .filter-white {
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(188deg) brightness(102%) contrast(103%);
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(188deg)
+    brightness(102%) contrast(103%);
 }
+.main-wrapper {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  height: 100%;
+}
+main {
+  height: 100%;
+}
+.sidebar {
+  border: 1px solid black;
+  height: 100%;
+}
+.main-content {
+  border: 1px solid black;
+  height: 100%;
+}
+.current-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.list-flex {
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-right: 30px;
+ 
+}
+.nav-flex {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px
+
+}
+.project-wrapper {
+    text-align: center;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+ul {
+    list-style: none;
+}
+
