@@ -1,5 +1,3 @@
 import "./normalize.css";
 import "./style.css";
-import createTodoCard from "./todo-card";
-/
-
+/* import createTodoCard from "./todo-card"; */
