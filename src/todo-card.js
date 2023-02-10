@@ -15,13 +15,13 @@ const createTodoCard = (title, description, dueDate, priority) => {
   const setDesc = (descValue) => {
     cardDesc = descValue;
   };
-  const setDueDate = (descValue) => {
-    cardDueDate = descValue;
+  const setDueDate = (dueValue) => {
+    cardDueDate = dueValue;
   };
   const setCardPrio = (prioValue) => {
     cardPrio = prioValue;
   };
-
+  
   return {
     getTitle,
     getDesc,
@@ -33,7 +33,5 @@ const createTodoCard = (title, description, dueDate, priority) => {
     setTitle,
   };
 };
-
-const updateCard = (card, updateType, content) => {};
 
 export default createTodoCard;

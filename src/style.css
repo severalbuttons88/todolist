@@ -1,0 +1,37 @@
+:root {
+  /* https://coolors.co/333232-f7b2ad-ceb7b3-b7b7b7-9abca7 */
+  --pallet-black: #333232;
+  --pallet-pink: #f7b2ad;
+  --pallet-tan: #ceb7b3;
+  --pallet-silver: #b7b7b7;
+  --pallet-green: #9abca7;
+  --white-text: white;
+}
+
+@font-face {
+  font-family: "Oxygen";
+  src: url(./oxygen-regular-webfont.woff2) format("woff2"),
+    url("./oxygen-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Oxygen", Tahoma, Verdana, sans-serif;
+}
+
+.header {
+  display: flex;
+  background-color: var(--pallet-black);
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--white-text);
+}
+.header-title {
+  margin-left: 100px;
+}
+.logo {
+  background-color: blue;
+  background: url("./circle-logo.svg");
+}
