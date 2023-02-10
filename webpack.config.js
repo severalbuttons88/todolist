@@ -1,9 +1,10 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "[name].bundle.js",
+    filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
@@ -11,6 +12,12 @@ module.exports = {
   devServer: {
     static: "./dist",
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "ToDo List",
+      template: "src/index.html",
+    }),
+  ],
   module: {
     rules: [
       {
@@ -25,9 +32,10 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
     ],
-  },
-  optimization: {
-    runtimeChunk: "single",
   },
 };

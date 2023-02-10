@@ -29,9 +29,20 @@ html {
   color: var(--white-text);
 }
 .header-title {
-  margin-left: 100px;
+
 }
 .logo {
-  background-color: blue;
+  height: 50px;
+  width: 50px;
   background: url("./circle-logo.svg");
+}
+.logo-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 60px;
+  gap: 15px;
+}
+.filter-white {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(188deg) brightness(102%) contrast(103%);
 }
