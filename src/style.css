@@ -110,6 +110,7 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  white-space: nowrap;
 }
 #hourglass {
   height: 40px;
@@ -140,7 +141,7 @@ ul {
   justify-self: end;
   align-self: center;
   margin-right: 100px;
-  background-color:var(--pallet-silver);
+  background-color: var(--pallet-silver);
   color: var(--black-text);
   border-radius: 15px;
 }
@@ -151,5 +152,21 @@ ul {
   border: 1px solid black;
 }
 .task-title {
-    justify-self: end;
+  justify-self: end;
+}
+.dot-white {
+  width: 20px;
+  height: 20px;
+  background-color: var(--white-text);
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-black {
+  width: 20px;
+  height: 20px;
+  background-color: var(--black-text);
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
 }
