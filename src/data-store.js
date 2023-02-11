@@ -1,7 +1,17 @@
 const listStorage = (() => {
   let storedArray = [];
+  const initialArray = [];
   const setList = (array) => {
     storedArray = array;
+  };
+  const initializeCard = (array) => {
+    initialArray.push(array);
+    localStorage.setItem("initialData", JSON.stringify(array));
+  };
+  const getInitialData = () => {
+    const startData = localStorage.getItem("initialData");
+    const parseData = JSON.parse(startData);
+    return parseData;
   };
   const addCard = (card) => {
     storedArray.push(card);
@@ -14,7 +24,7 @@ const listStorage = (() => {
     return parsedData;
   };
 
-  return { addCard, getCard, setList };
+  return { addCard, getCard, setList, initializeCard, getInitialData };
 })();
 
 export default listStorage;
