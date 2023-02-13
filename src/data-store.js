@@ -1,5 +1,3 @@
-
-
 /* eslint-disable func-names */
 const listStorage = (() => {
   let storedArray = [];
@@ -44,18 +42,20 @@ const listStorage = (() => {
 
   return { addCard, getCard, setList };
 })();
+
 const projectStorage = (() => {
   let projectArray = [];
   const setArray = (array) => {
     projectArray = array;
   };
-/*   const removeProject = (index) => {
-    const indexValue = projectArray.indexOf(index);
-    console.log(indexValue);
-    if (indexValue > -1) {
-
-    }
-  }; */
+  function setStorage(array) {
+    localStorage.setItem("projectList", JSON.stringify(array));
+  }
+  const removeProject = (index) => {
+    const storageArray = projectStorage.getProject();
+    storageArray.splice(index, 1);
+    setStorage(storageArray);
+  };
   function ProjectArrayCreator(title) {
     this.title = title;
   }
@@ -69,7 +69,7 @@ const projectStorage = (() => {
     const parseData = JSON.parse(data);
     return parseData;
   };
-  return { addProject, getProject, setArray};
+  return { addProject, getProject, setArray, removeProject };
 })();
 const firstTimeStorage = () => {
   if (listStorage.getCard() === null) {

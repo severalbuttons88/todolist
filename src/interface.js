@@ -44,16 +44,18 @@ const renderProject = () => {
     const createClearButton = document.createElement("button");
     createClearButton.classList.add("clear-button");
     createClearButton.textContent = "X";
-    createClearButton.setAttribute("data-index", `${index}`);
+    createClearButton.setAttribute("id", `button-${index}`);
 
     const createProject = document.createElement("div");
     createProject.classList.add("project-card");
     createProject.setAttribute("id", `project-${index}`);
     createProject.textContent = project.title;
     createClearButton.addEventListener("click", (e) => {
-      
-      const buttonValue = e.target.id.replace(/\D/g, "");
-      projectStorage.removeProject(Number(buttonValue));
+      const button = e.target;
+      const buttonValue = button.id.replace(/\D/g, "");
+      const numberValue = Number(buttonValue);
+      projectStorage.removeProject(numberValue);
+      renderProject();
     });
     createProject.appendChild(createClearButton);
     projectContainer.appendChild(createProject);
