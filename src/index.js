@@ -12,14 +12,9 @@ const gatherFormData = (() => {
   const form = document.querySelector(".form");
 
   form.addEventListener("submit", (e) => {
-    let formArray = [];
-    formArray.push(titleInput.value);
-    formArray.push(descInput.value);
-    formArray.push(dateInput.value);
-    formArray.push(prioInput.value);
-    listStorage.initializeCard(formArray);
-
-    formArray = [];
+    const card = createTodoCard(titleInput.value, descInput.value, dateInput.value, prioInput.value);
+    listStorage.addCard(card);
+    renderCard();
     e.preventDefault();
     if (form.classList.contains("visible")) {
       form.classList.add("no-visible");
@@ -30,11 +25,4 @@ const gatherFormData = (() => {
     }
   });
 })();
-const card1 = createTodoCard("bob", "bob", "bob", "bob");
-const card2 = createTodoCard("bruh", "bruh", "bruh", "bruh");
-const card3 = createTodoCard("main", "imain", "main", "main");
-listStorage.addCard(card1);
-listStorage.addCard(card2);
-listStorage.addCard(card3);
-renderCard();
-console.log(listStorage.getCard());
+
