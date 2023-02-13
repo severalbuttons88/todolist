@@ -1,10 +1,18 @@
+/* eslint-disable func-names */
 const listStorage = (() => {
   let storedArray = [];
   const initialArray = [];
   const setList = (array) => {
     storedArray = array;
   };
-  function CardArrayCreator(title, desc, date, prio, index, project = "default") {
+  function CardArrayCreator(
+    title,
+    desc,
+    date,
+    prio,
+    index,
+    project = "default"
+  ) {
     this.title = title;
     this.desc = desc;
     this.date = date;
@@ -12,6 +20,13 @@ const listStorage = (() => {
     this.index = index;
     this.project = project;
   }
+
+  CardArrayCreator.prototype.setIndex = function (index) {
+    this.index = index;
+  };
+  CardArrayCreator.prototype.setProject = function (project) {
+    this.project = project;
+  };
   const initializeCard = (array) => {
     initialArray.push(array);
     localStorage.setItem("initialData", JSON.stringify(array));

@@ -14,9 +14,31 @@ const formVisibleToggle = (() => {
     }
   });
 })();
+
 const renderCard = () => {
   const listContainer = document.querySelector("#list-container");
-  const createDiv = document.createElement('div');
-  createDiv.classList.add("card");
+
+
   const cardArray = listStorage.getCard();
+
+  // eslint-disable-next-line array-callback-return
+  cardArray.map((card, index) => {
+    const createCard = document.createElement("div");
+    const createTitle = document.createElement("div");
+    const createDesc = document.createElement("div");
+    createCard.classList.add("card");
+    createTitle.classList.add("card-title");
+    createDesc.classList.add("card-desc");
+    if (card.project === "default") {
+      card.index = index;
+      createCard.setAttribute("id", `card-${index}`);
+      createTitle.textContent = card.title;
+      createDesc.textContent = card.desc;
+      createCard.appendChild(createTitle);
+      createCard.appendChild(createDesc);
+      listContainer.appendChild(createCard);
+    }
+  });
 };
+
+export default renderCard;

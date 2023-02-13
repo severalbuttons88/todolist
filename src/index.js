@@ -1,6 +1,6 @@
 import "./normalize.css";
 import "./style.css";
-import "./interface";
+import renderCard from "./interface";
 import listStorage from "./data-store";
 import createTodoCard from "./todo-card";
 
@@ -32,6 +32,9 @@ const gatherFormData = (() => {
 })();
 const card1 = createTodoCard("bob", "bob", "bob", "bob");
 const card2 = createTodoCard("bruh", "bruh", "bruh", "bruh");
+const card3 = createTodoCard("main", "imain", "main", "main");
 listStorage.addCard(card1);
 listStorage.addCard(card2);
+listStorage.addCard(card3);
+renderCard();
 console.log(listStorage.getCard());
