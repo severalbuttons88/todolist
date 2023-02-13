@@ -16,6 +16,15 @@ const listStorage = (() => {
   const setProject = (project) => {
     projectSelected = project;
   };
+  const clearProjectCard = (projectTitle) => {
+    // eslint-disable-next-line array-callback-return
+    storedArray.map((card, index) => {
+      if (card.project === projectTitle) {
+        storedArray.splice(index, 1);
+      }
+    });
+    localStorage.setItem("cardList", JSON.stringify(storedArray));
+  };
   const getCurrentProject = () => projectSelected;
   const addCard = (card) => {
     const cardConverted = new CardArrayCreator(
@@ -38,7 +47,14 @@ const listStorage = (() => {
     return parsedData;
   };
 
-  return { addCard, getCard, setList, setProject, getCurrentProject };
+  return {
+    addCard,
+    getCard,
+    setList,
+    setProject,
+    getCurrentProject,
+    clearProjectCard,
+  };
 })();
 
 const projectStorage = (() => {

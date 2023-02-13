@@ -55,7 +55,6 @@ const getProjectName = (() => {
   const form = document.querySelector("#project-form");
 
   form.addEventListener("submit", (e) => {
-    console.log(emptyProject());
     const project = createProject(projectTitle.value);
     if (emptyProject() === false) {
       const projectArray = projectStorage.getProject();

@@ -56,9 +56,14 @@ const renderProject = () => {
     createProject.setAttribute("id", `project-${index}`);
     createProject.textContent = project.title;
     createClearButton.addEventListener("click", (e) => {
-      const button = e.target;
-      const buttonValue = button.id.replace(/\D/g, "");
+      const button = e.target.id;
+      const parent = e.target.closest(".project-card").id;
+
+      const buttonValue = Number(button.replace(/\D/g, ""));
+      const parentValue = Number(parent.replace(/\D/g, ""));
       const numberValue = Number(buttonValue);
+
+      listStorage.clearProjectCard(listStorage.getCurrentProject());
       projectStorage.removeProject(numberValue);
       renderProject();
     });
