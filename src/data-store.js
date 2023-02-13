@@ -1,7 +1,8 @@
+
+
 /* eslint-disable func-names */
 const listStorage = (() => {
   let storedArray = [];
-  const initialArray = [];
   const setList = (array) => {
     storedArray = array;
   };
@@ -21,21 +22,6 @@ const listStorage = (() => {
     this.project = project;
   }
 
-  CardArrayCreator.prototype.setIndex = function (index) {
-    this.index = index;
-  };
-  CardArrayCreator.prototype.setProject = function (project) {
-    this.project = project;
-  };
-  const initializeCard = (array) => {
-    initialArray.push(array);
-    localStorage.setItem("initialData", JSON.stringify(array));
-  };
-  const getInitialData = () => {
-    const startData = localStorage.getItem("initialData");
-    const parseData = JSON.parse(startData);
-    return parseData;
-  };
   const addCard = (card) => {
     const cardConverted = new CardArrayCreator(
       card.getTitle(),
@@ -44,7 +30,9 @@ const listStorage = (() => {
       card.getCardPrio(),
       storedArray.length
     );
+
     storedArray.push(cardConverted);
+
     localStorage.setItem("cardList", JSON.stringify(storedArray));
   };
 
@@ -54,7 +42,45 @@ const listStorage = (() => {
     return parsedData;
   };
 
-  return { addCard, getCard, setList, initializeCard, getInitialData };
+  return { addCard, getCard, setList };
 })();
+const projectStorage = (() => {
+  let projectArray = [];
+  const setArray = (array) => {
+    projectArray = array;
+  };
+/*   const removeProject = (index) => {
+    const indexValue = projectArray.indexOf(index);
+    console.log(indexValue);
+    if (indexValue > -1) {
 
-export default listStorage;
+    }
+  }; */
+  function ProjectArrayCreator(title) {
+    this.title = title;
+  }
+  const addProject = (project) => {
+    const convertProject = new ProjectArrayCreator(project.getTitle());
+    projectArray.push(convertProject);
+    localStorage.setItem("projectList", JSON.stringify(projectArray));
+  };
+  const getProject = () => {
+    const data = localStorage.getItem("projectList");
+    const parseData = JSON.parse(data);
+    return parseData;
+  };
+  return { addProject, getProject, setArray};
+})();
+const firstTimeStorage = () => {
+  if (listStorage.getCard() === null) {
+    return true;
+  }
+  return false;
+};
+const emptyProject = () => {
+  if (projectStorage.getProject() === null) {
+    return true;
+  }
+  return false;
+};
+export { listStorage, projectStorage, firstTimeStorage, emptyProject };

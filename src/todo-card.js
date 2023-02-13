@@ -22,17 +22,8 @@ const createTodoCard = (title, description, dueDate, priority) => {
   const setCardPrio = (prioValue) => {
     cardPrio = prioValue;
   };
-  function combineProperties(titleVal, desc, date, prio) {
-    cardProps = {
-      title: `${titleVal}`,
-      desc: `${desc}`,
-      dueDate: `${date}`,
-      prio: `${prio}`,
-    };
-  }
-  combineProperties(cardTitle, cardDesc, cardDueDate, cardPrio);
 
-  const getProperties = () => cardProps;
+
 
   return {
     getTitle,
@@ -43,7 +34,6 @@ const createTodoCard = (title, description, dueDate, priority) => {
     setDesc,
     setDueDate,
     setTitle,
-    getProperties,
   };
 };
 

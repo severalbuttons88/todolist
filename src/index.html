@@ -20,18 +20,18 @@
     <main>
       <form action="" class="form no-visible">
         <div class="form-header"><h1>Task Form</h1></div>
-        <div class="input-flex">
+        <div class="input-flex" required>
           <div>
             <label for="name" class="text-color">Task Name:</label>
-            <input type="text" id="name" />
+            <input type="text" id="name" required />
           </div>
           <div>
             <label for="desc" class="text-color">Task Description</label>
-            <input type="text" id="desc" />
+            <input type="text" id="desc" required />
           </div>
           <div>
             <label for="date" class="text-color">Due Date</label>
-            <input type="date" id="date" />
+            <input type="date" id="date" required />
           </div>
           <div>
             <label for="priority" class="text-color">Priority</label>
@@ -84,7 +84,22 @@
                 />
                 <h1 class="large-font">Projects</h1>
               </div>
-              <div class="project-container"></div>
+              <div class="project-form-flex">
+                <button id="add-project">Add Project</button>
+                <form action="" id="project-form" class="project-no-visible">
+                  <label for="project-name">Enter Project Name </label>
+                  <input
+                    type="text"
+                    id="project-name"
+                    required
+                    maxlength="20"
+                  />
+                  <button>Create Project</button>
+                </form>
+              </div>
+              <div class="project-container">
+<!--                 <div class="project-card">Some Project</div> -->
+              </div>
             </div>
           </nav>
         </section>
@@ -97,8 +112,8 @@
             <div class="task-wrapper">
               <div id="list-container">
                 <div class="card">
-                  <div class="card-title">Title</div>
-                  <div class="card-desc">Something about htis card info</div>
+                  <div class="card-title">Try Making a Card</div>
+                  <div class="card-desc"></div>
                 </div>
               </div>
             </div>
