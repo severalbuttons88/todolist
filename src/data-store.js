@@ -4,6 +4,14 @@ const listStorage = (() => {
   const setList = (array) => {
     storedArray = array;
   };
+  function CardArrayCreator(title, desc, date, prio, index, project = "default") {
+    this.title = title;
+    this.desc = desc;
+    this.date = date;
+    this.prio = prio;
+    this.index = index;
+    this.project = project;
+  }
   const initializeCard = (array) => {
     initialArray.push(array);
     localStorage.setItem("initialData", JSON.stringify(array));
@@ -14,7 +22,14 @@ const listStorage = (() => {
     return parseData;
   };
   const addCard = (card) => {
-    storedArray.push(card);
+    const cardConverted = new CardArrayCreator(
+      card.getTitle(),
+      card.getDesc(),
+      card.getDueDate(),
+      card.getCardPrio(),
+      storedArray.length
+    );
+    storedArray.push(cardConverted);
     localStorage.setItem("cardList", JSON.stringify(storedArray));
   };
 

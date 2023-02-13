@@ -14,5 +14,9 @@ const formVisibleToggle = (() => {
     }
   });
 })();
-
-
+const renderCard = () => {
+  const listContainer = document.querySelector("#list-container");
+  const createDiv = document.createElement('div');
+  createDiv.classList.add("card");
+  const cardArray = listStorage.getCard();
+};

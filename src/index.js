@@ -30,3 +30,8 @@ const gatherFormData = (() => {
     }
   });
 })();
+const card1 = createTodoCard("bob", "bob", "bob", "bob");
+const card2 = createTodoCard("bruh", "bruh", "bruh", "bruh");
+listStorage.addCard(card1);
+listStorage.addCard(card2);
+console.log(listStorage.getCard());
