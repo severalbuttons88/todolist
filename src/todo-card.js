@@ -3,7 +3,6 @@ const createTodoCard = (title, description, dueDate, priority) => {
   let cardDesc = description;
   let cardDueDate = dueDate;
   let cardPrio = priority;
-  let cardProps = {};
 
   const getTitle = () => cardTitle;
   const getDesc = () => cardDesc;

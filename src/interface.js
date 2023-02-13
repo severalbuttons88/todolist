@@ -28,9 +28,9 @@ const projectFormToggle = (() => {
     }
   });
 })();
-function removeAllChildren(container) {}
 const renderProject = () => {
   const projectContainer = document.querySelector(".project-container");
+  const defaultTaskButton = document.querySelector("#default-project");
 
   function removeAllProjects() {
     while (projectContainer.firstChild) {
@@ -38,6 +38,11 @@ const renderProject = () => {
     }
   }
   removeAllProjects();
+  defaultTaskButton.addEventListener("click", () => {
+    listStorage.setProject("default");
+    // eslint-disable-next-line no-use-before-define
+    renderCard();
+  });
   const projectArray = projectStorage.getProject();
   // eslint-disable-next-line array-callback-return
   projectArray.map((project, index) => {
@@ -56,6 +61,14 @@ const renderProject = () => {
       const numberValue = Number(buttonValue);
       projectStorage.removeProject(numberValue);
       renderProject();
+    });
+
+    createProject.addEventListener("click", (e) => {
+      const eTarget = e.target;
+      const title = eTarget.textContent;
+      listStorage.setProject(title);
+      // eslint-disable-next-line no-use-before-define
+      renderCard();
     });
     createProject.appendChild(createClearButton);
     projectContainer.appendChild(createProject);
@@ -80,7 +93,7 @@ const renderCard = () => {
     createCard.classList.add("card");
     createTitle.classList.add("card-title");
     createDesc.classList.add("card-desc");
-    if (card.project === "default") {
+    if (card.project === listStorage.getCurrentProject()) {
       // eslint-disable-next-line no-param-reassign
       card.index = index;
       createCard.setAttribute("id", `card-${index}`);

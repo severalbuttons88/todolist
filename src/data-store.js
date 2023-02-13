@@ -1,17 +1,11 @@
 /* eslint-disable func-names */
 const listStorage = (() => {
+  let projectSelected = "default";
   let storedArray = [];
   const setList = (array) => {
     storedArray = array;
   };
-  function CardArrayCreator(
-    title,
-    desc,
-    date,
-    prio,
-    index,
-    project = "default"
-  ) {
+  function CardArrayCreator(title, desc, date, prio, index, project) {
     this.title = title;
     this.desc = desc;
     this.date = date;
@@ -19,14 +13,18 @@ const listStorage = (() => {
     this.index = index;
     this.project = project;
   }
-
+  const setProject = (project) => {
+    projectSelected = project;
+  };
+  const getCurrentProject = () => projectSelected;
   const addCard = (card) => {
     const cardConverted = new CardArrayCreator(
       card.getTitle(),
       card.getDesc(),
       card.getDueDate(),
       card.getCardPrio(),
-      storedArray.length
+      storedArray.length,
+      projectSelected
     );
 
     storedArray.push(cardConverted);
@@ -40,7 +38,7 @@ const listStorage = (() => {
     return parsedData;
   };
 
-  return { addCard, getCard, setList };
+  return { addCard, getCard, setList, setProject, getCurrentProject };
 })();
 
 const projectStorage = (() => {
